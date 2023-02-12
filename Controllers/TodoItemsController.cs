@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 using TodoAPI.Models;
@@ -17,6 +18,7 @@ public class TodoItemsController : ControllerBase
     }
 
     // GET: api/TodoItems
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodoItems()
     {
