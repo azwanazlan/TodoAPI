@@ -8,6 +8,7 @@ namespace TodoApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class TodoItemsController : ControllerBase
 {
     private readonly TodoContext _context;
@@ -18,7 +19,6 @@ public class TodoItemsController : ControllerBase
     }
 
     // GET: api/TodoItems
-    [Authorize]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodoItems()
     {
